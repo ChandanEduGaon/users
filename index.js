@@ -2,7 +2,7 @@ const express = require("express");
 const mysql = require("mysql");
 const app = express();
 
-const port = process.env.POET || 3000;
+const port = process.env.PORT || 3000;
 const pool = mysql.createPool({
   host: "localhost",
   user: "root",
@@ -19,12 +19,7 @@ app.get("/api/users", (req, res) => {
         if (error) {
           res.status(500).json({ error: "Error executing the query" });
         } else {
-          const data = {
-            "name": "Chandan Kumar",
-            "age": 19,
-            "email": "chandan@gmail.com",
-          }
-          res.json(data);
+          res.json(results);
         }
       });
     }

@@ -2,7 +2,7 @@ const express = require("express");
 const mysql = require("mysql");
 const app = express();
 
-const port = 3000;
+const port = process.env.POET || 3000;
 const pool = mysql.createPool({
   host: "localhost",
   user: "root",
@@ -22,7 +22,7 @@ app.get("/api/users", (req, res) => {
           const data = {
             "name": "Chandan Kumar",
             "age": 19,
-            "email": "chandan@gmal.com",
+            "email": "chandan@gmail.com",
           }
           res.json(data);
         }

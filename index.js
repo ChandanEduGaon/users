@@ -4,9 +4,9 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 const pool = mysql.createPool({
-  host: "0.0.0.0",
-  user: "root",
-  password: "",
+  host: "sql12.freesqldatabase.com",
+  user: "sql12621944",
+  password: "CBh1yLwf48",
   database: "sql12621944",
 });
 app.get("/", (req, res) => {
@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
     if (err) {
       res.status(500).json({ error: "Error connecting to the database" });
     } else {
-      connection.query("SELECT * FROM teachers", (error, results) => {
+      connection.query("SELECT * FROM users", (error, results) => {
         connection.release(); // Release the connection back to the pool
         if (error) {
           res.status(500).json({ error: "Error executing the query" });

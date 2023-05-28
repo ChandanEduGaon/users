@@ -19,7 +19,12 @@ app.get("/api/users", (req, res) => {
         if (error) {
           res.status(500).json({ error: "Error executing the query" });
         } else {
-          res.json(results);
+          const data = {
+            "name": "Chandan Kumar",
+            "age": 19,
+            "email": "chandan@gmal.com",
+          }
+          res.json(data);
         }
       });
     }
